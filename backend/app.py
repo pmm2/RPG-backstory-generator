@@ -1,15 +1,14 @@
 from fastapi import FastAPI
+from rpg_generator import generate_rpg_background
 
 app = FastAPI()
-def process_character(character):
-    print(f"Processing character: {character}")
-    # Call  proccess_caracther from the chatgpt python file here
-  
 
-
+async def process_character(character):
+    generated_background = await generate_rpg_background(character)
+    return generated_background
 
 @app.get("/character")
-def get_character(
+async def get_character(
     height: str,
     eyes: str,
     hair_color: str,
@@ -39,6 +38,6 @@ def get_character(
         "character_class": character_class,
         "background": background
     }
-    process_character(character)  
-    
-    return character  
+    background_story = await process_character(character)
+    # print(background_story)
+    return background_story
