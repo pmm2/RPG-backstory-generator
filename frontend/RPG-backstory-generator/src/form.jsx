@@ -6,16 +6,16 @@ const CategoryForm = () => {
     const [formData, setFormData] = useState({
         height: "",
         eyes: "",
-        hairColor: "",
-        hairLength: "",
-        hairType: "",
-        bodyType: "",
-        skinTone: "",
-        facialFeatures: "",
-        clothingStyle: "",
-        weaponPreference: "",
+        hair_color: "",
+        hair_length: "",
+        hair_type: "",
+        body_type: "",
+        skin_tone: "",
+        facial_features: "",
+        clothing_style: "",
+        weapon_preference: "",
         race: "",
-        characterClass: "",
+        character_class: "",
         background: "",
     });
     const [toggle, setToggle] = useState(true)
@@ -27,14 +27,18 @@ const CategoryForm = () => {
             [name]: value,
         }));
     };
+    const instance = axios.create({
+        baseURL: 'http://localhost:8000'
+    });
 
     const fetchCharacther = async () => {
         try {
-            const response = await axios.get('/character', {
+            const response = await instance.get('/character', {
                 params: formData,
             });
+            console.log(response);
 
-            setHistory(response.data);
+            setHistory(response.data.content.split(':'));
             setToggle(false);
         } catch (error) {
             console.error(error);
@@ -60,37 +64,37 @@ const CategoryForm = () => {
             options: ["Blue", "Green", "Brown", "Gray", "Hazel"],
         },
         {
-            name: "hairColor",
+            name: "hair_color",
             label: "Color of hair",
             options: ["Black", "Brown", "Blonde", "Red", "Gray", "White"],
         },
         {
-            name: "hairLength",
+            name: "hair_length",
             label: "Length of hair",
             options: ["Bald", "Short", "Medium", "Long"],
         },
         {
-            name: "hairType",
+            name: "hair_type",
             label: "Type of hair",
             options: ["Straight", "Wavy", "Curly", "Braided", "Dreadlocks"],
         },
         {
-            name: "bodyType",
+            name: "body_type",
             label: "Body type",
             options: ["Slim", "Athletic", "Muscular", "Curvy", "Stout", "Heavyset"],
         },
         {
-            name: "skinTone",
+            name: "skin_tone",
             label: "Skin tone",
             options: ["Fair", "Light", "Medium", "Olive", "Dark", "Ebony"],
         },
         {
-            name: "facialFeatures",
+            name: "facial_features",
             label: "Facial features",
             options: ["Clean-shaven", "Beard", "Mustache", "Sideburns", "Scars"],
         },
         {
-            name: "clothingStyle",
+            name: "clothing_style",
             label: "Clothing style",
             options: [
                 "Elegant",
@@ -102,7 +106,7 @@ const CategoryForm = () => {
             ],
         },
         {
-            name: "weaponPreference",
+            name: "weapon_preference",
             label: "Weapon preference",
             options: ["Sword", "Bow", "Staff", "Dagger", "Hammer", "Shield"],
         },
@@ -122,7 +126,7 @@ const CategoryForm = () => {
             ],
         },
         {
-            name: "characterClass",
+            name: "character_class",
             label: "Class",
             options: [
                 "Fighter",
@@ -184,9 +188,9 @@ const CategoryForm = () => {
                 </Button>
             </Form>}
             {!toggle &&
-                <h3>
-                    {history}
-                </h3>}
+                history.map((string, index) => (
+                    <h2 key={index}>{string.trim()}</h2>
+                ))}
         </>
     );
 };

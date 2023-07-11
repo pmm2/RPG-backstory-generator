@@ -1,10 +1,12 @@
 import httpx
 import requests
 import json
+import os
 
+openai_key = os.getenv('OPENAI_KEY')
 async def generate_rpg_background(character):
     # Defina suas credenciais da API do OpenAI
-    api_key = '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'
+    api_key = openai_key
     api_url = 'https://api.openai.com/v1/chat/completions'
     id_modelo = 'gpt-3.5-turbo'
 
@@ -29,4 +31,5 @@ async def generate_rpg_background(character):
     body_message = json.dumps(body_message)
 
     req = requests.post(api_url, headers=headers, data=body_message)
+    print(req.json()['choices'][0]['message'])
     return req.json()['choices'][0]['message']
