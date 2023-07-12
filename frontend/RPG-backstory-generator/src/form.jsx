@@ -189,7 +189,7 @@ const CategoryForm = () => {
             </Form>}
             {!toggle &&
                 history.map((string, index) => (
-                    <h2 key={index}>{string.trim()}</h2>
+                    <p key={index}>{string.trim()}</p>
                 ))}
         </>
     );
