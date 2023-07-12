@@ -38,7 +38,7 @@ const CategoryForm = () => {
             });
             console.log(response);
 
-            setHistory(response.data.content.split(':'));
+            setHistory(response.data.content);
             setToggle(false);
         } catch (error) {
             console.error(error);
@@ -188,9 +188,8 @@ const CategoryForm = () => {
                 </Button>
             </Form>}
             {!toggle &&
-                history.map((string, index) => (
-                    <p key={index}>{string.trim()}</p>
-                ))}
+                <p>{history}</p>
+            }
         </>
     );
 };
