@@ -49,5 +49,4 @@ async def get_character(
         "background": background
     }
     background_story = await process_character(character)
-    # print(background_story)
     return background_story
