@@ -9,10 +9,9 @@ async def generate_rpg_background(character):
     api_key = openai_key
     api_url = 'https://api.openai.com/v1/chat/completions'
     id_modelo = 'gpt-3.5-turbo'
-
     # Construa o prompt com base nas características do personagem
-    prompt = f"Height: {character['height']}\nEyes: {character['eyes']}\nHair Color: {character['hair_color']}\nHair Length: {character['hair_length']}\nHair Type: {character['hair_type']}\nBody Type: {character['body_type']}\nSkin Tone: {character['skin_tone']}\nFacial Features: {character['facial_features']}\nClothing Style: {character['clothing_style']}\nWeapon Preference: {character['weapon_preference']}\nRace: {character['race']}\nCharacter Class: {character['character_class']}\nBackground: {character['background']}"
-
+    prompt = f"I will give you a list o characteristics of a character. Create a backgorund history with it: Height: {character['height']}, Eyes: {character['eyes']}, Hair Color: {character['hair_color']}, Hair Length: {character['hair_length']}, Hair Type: {character['hair_type']}, Body Type: {character['body_type']}, Skin Tone: {character['skin_tone']}, Facial Features: {character['facial_features']}, Clothing Style: {character['clothing_style']}, Weapon Preference: {character['weapon_preference']}, Race: {character['race']}, Character Class: {character['character_class']}, Background: {character['background']}"
+    prompt2 = f"Create a background history for a character that is {character['height']} tall, has {character['hair_color']}"
     # Faça uma solicitação POST para a API do ChatGPT
     headers = {
         'Content-Type': 'application/json',
@@ -30,6 +29,18 @@ async def generate_rpg_background(character):
     }
     body_message = json.dumps(body_message)
 
-    req = requests.post(api_url, headers=headers, data=body_message)
-    print(req.json()['choices'][0]['message'])
-    return req.json()['choices'][0]['message']
+    try:
+        req = requests.post(api_url, headers=headers, data=body_message)
+        req.raise_for_status()
+        data = req.json()
+        choices = data.get('choices')
+        if choices:
+            message = choices[0].get('message')
+            if message and 'content' in message:
+                return message
+        return "Failed to generate background story."
+    except requests.exceptions.RequestException as e:
+        return f"Error: {e}"
+    except (KeyError, IndexError) as e:
+        return "Invalid response from the API."
+
