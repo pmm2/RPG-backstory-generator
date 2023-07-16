@@ -36,3 +36,73 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  background-color: #1a1a1a;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c41e3a;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  color: #c41e3a;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #5c141f;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c41e3a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  animation: glowing 2s infinite;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  50% {
+    text-shadow: 2px 2px 8px rgba(196, 30, 58, 0.9);
+  }
+  100% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.add-character-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-character-button a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+

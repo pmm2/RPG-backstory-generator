@@ -1,0 +1,106 @@
+[
+    {
+        "name": "height",
+        "label": "Height",
+        "options": ["Short", "Average", "Tall", "Very tall"]
+    },
+    {
+        "name": "eyes",
+        "label": "Eyes",
+        "options": ["Blue", "Green", "Brown", "Gray", "Hazel"]
+    },
+    {
+        "name": "hair_color",
+        "label": "Color of hair",
+        "options": ["Black", "Brown", "Blonde", "Red", "Gray", "White"]
+    },
+    {
+        "name": "hair_length",
+        "label": "Length of hair",
+        "options": ["Bald", "Short", "Medium", "Long"]
+    },
+    {
+        "name": "hair_type",
+        "label": "Type of hair",
+        "options": ["Straight", "Wavy", "Curly", "Braided", "Dreadlocks"]
+    },
+    {
+        "name": "body_type",
+        "label": "Body type",
+        "options": ["Slim", "Athletic", "Muscular", "Curvy", "Stout", "Heavyset"]
+    },
+    {
+        "name": "skin_tone",
+        "label": "Skin tone",
+        "options": ["Fair", "Light", "Medium", "Olive", "Dark", "Ebony"]
+    },
+    {
+        "name": "facial_features",
+        "label": "Facial features",
+        "options": ["Clean-shaven", "Beard", "Mustache", "Sideburns", "Scars"]
+    },
+    {
+        "name": "clothing_style",
+        "label": "Clothing style",
+        "options": [
+            "Elegant",
+            "Casual",
+            "Practical/Functional",
+            "Exotic",
+            "Formal",
+            "Vintage"
+        ]
+    },
+    {
+        "name": "weapon_preference",
+        "label": "Weapon preference",
+        "options": ["Sword", "Bow", "Staff", "Dagger", "Hammer", "Shield"]
+    },
+    {
+        "name": "race",
+        "label": "Race",
+        "options": [
+            "Human",
+            "Elf",
+            "Dwarf",
+            "Halfling",
+            "Tiefling",
+            "Dragonborn",
+            "Half-elf",
+            "Half-orc",
+            "Gnome"
+        ]
+    },
+    {
+        "name": "character_class",
+        "label": "Class",
+        "options": [
+            "Fighter",
+            "Wizard",
+            "Rogue",
+            "Cleric",
+            "Bard",
+            "Paladin",
+            "Ranger",
+            "Sorcerer",
+            "Warlock",
+            "Monk"
+        ]
+    },
+    {
+        "name": "background",
+        "label": "Background",
+        "options": [
+            "Noble",
+            "Outlander",
+            "Criminal",
+            "Acolyte",
+            "Sage",
+            "Soldier",
+            "Folk Hero",
+            "Urchin",
+            "Entertainer",
+            "Guild Artisan"
+        ]
+    }
+]
