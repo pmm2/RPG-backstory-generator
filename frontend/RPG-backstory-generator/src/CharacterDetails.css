@@ -1,0 +1,60 @@
+.character-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .character-info {
+    display: flex;
+  }
+  
+  .character-image {
+    width: 300px; /* Tamanho desejado para a largura da imagem */
+    margin-right: 20px; /* Espaçamento entre a imagem e as informações */
+  }
+  
+  .character-details-right {
+    flex-grow: 1;
+  }
+  
+  .character-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .character-story {
+    font-size: 16px;
+  }
+
+  
+  .footer {
+    background-color: #000;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  .footer:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #39ff14;
+    animation: tetris 2s infinite linear;
+  }
+  
+  @keyframes tetris {
+    0% {
+      transform: scaleX(0);
+    }
+    50% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0);
+    }
+  }
+  

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
 import Home from "./Home";
 import charactersData from './Files/Personagens.json';
 import CharacterList from './CharacterList';
+import CharacterDetails from './CharacterDetails';
 
 const app = () => {
   return (
@@ -15,6 +16,7 @@ const app = () => {
         <Route path="/" element={<Home />}   />
         <Route path="/Personagem"  element={ <Container> <CategoryForm /> </Container>} />
         <Route path="/Personagens"  element={<CharacterList characters={charactersData} />} />
+        <Route path="/person/:characterName" element={<CharacterDetails characters={charactersData} />} />
       </Routes>
     </Router>
   );

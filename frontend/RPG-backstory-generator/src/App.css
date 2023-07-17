@@ -105,5 +105,29 @@
   font-size: 20px;
 }
 
+.character-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
+.character-info {
+  text-align: center;
+}
+
+.character-image {
+  width: 50%; /* ou qualquer valor desejado para diminuir a imagem */
+  margin-bottom: 10px;
+}
+
+.character-name {
+  font-family: 'NomeDaFonte', sans-serif; /* Substitua 'NomeDaFonte' pela fonte desejada */
+  font-size: 24px; /* ou qualquer valor desejado para aumentar o tamanho */
+  margin-top: 10px;
+}
+
+.character-story {
+  margin-top: 20px; /* ou qualquer valor desejado para a distância */
+}
 

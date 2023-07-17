@@ -1,6 +1,4 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-
 const Home = () => {
   return (
     <div className="home-page-container">

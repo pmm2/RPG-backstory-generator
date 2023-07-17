@@ -1,10 +1,16 @@
 import React from 'react';
 import AddCharacterButton from './AddCharacterButton';
 import './CharacterList.css';
-import { Card,CardGroup, Row, Col,Container } from 'react-bootstrap';
-
+import { Card, Row, Col,Container } from 'react-bootstrap';
+import { useNavigate  } from 'react-router-dom';
 
 const CharacterList = ({ characters }) => {
+  const navigate  = useNavigate();
+
+  const handleCharacterClick = (character) => {
+    navigate(`/person/${character.name}`);
+  };
+
   const generateGrid = () => {
     const grid = [];
     let index = 0;
@@ -16,7 +22,7 @@ const CharacterList = ({ characters }) => {
           const character = characters[index];
           cols.push(
             <Col xs={12} md={6} lg={4} xl={3} key={character.name} className="character-list-col">
-              <Card className="character-card">
+              <Card className="character-card" onClick={() => handleCharacterClick(character)}>
                 <Card.Img variant="top" src={character.image} alt={character.name} className="character-image" />
                 <Card.Body>
                   <Card.Title>{character.name}</Card.Title>
