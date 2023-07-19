@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
 import categories from './Files/Category.json';
-import './form.css';
+import './formulario.css';
 
 const CategoryForm = () => {
   const [formData, setFormData] = useState({
