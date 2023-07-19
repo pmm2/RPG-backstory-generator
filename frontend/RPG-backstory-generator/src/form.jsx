@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
 import categories from './Files/Category.json';
+import './form.css';
 
 const CategoryForm = () => {
   const [formData, setFormData] = useState({
@@ -57,13 +58,13 @@ const CategoryForm = () => {
 
   return (
     <div className="rpg-form-container">
-      <h1 className="rpg-form-title">Create Your Character</h1>
+      <h1 className="rpg-form-title form-card">Create Your Character</h1>
       <div className="rpg-form-content">
         {toggle && (
           <Form>
             {categories.map((category) => (
-              <Form.Group key={category.name} className="mb-3">
-                <Form.Label>{category.label}:</Form.Label>
+              <Form.Group key={category.name} className="mb-3 form-card">
+                <Form.Label className="card-title">{category.label}:</Form.Label>
                 <div>
                   {category.options.map((option) => (
                     <Form.Check
